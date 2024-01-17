@@ -38,11 +38,11 @@ wordcountMapFromList' (currWord : xs) accMap
     newCount = oldCount + 1
 
 splitTextOnCriteria :: Text -> [Text]
-splitTextOnCriteria t = filter (not . T.null) $ split (\c -> c `elem` [' ', ',', '.', '!', '?']) t
+splitTextOnCriteria t = filter (not . T.null) $ split (== ' ') t
 
 -- split text, strip symbols
 normalizeInputStr :: String -> [Text]
-normalizeInputStr inputStr = map toLower $ splitTextOnCriteria $ pack inputStr
+normalizeInputStr inputStr = map (toLower . T.filter (\x -> x `elem` ['a'..'z'] || x `elem` ['A'..'Z'])) $ splitTextOnCriteria $ pack inputStr
 
 -- printing functions
 --  print in the format

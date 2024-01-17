@@ -32,7 +32,8 @@ library
       src
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
-      base >=4.7 && <5
+      HUnit ==1.6.*
+    , base >=4.7 && <5
     , containers >=0.6.7
     , text >=2.0.2
   default-language: Haskell2010
@@ -45,7 +46,8 @@ executable kwd-cli-exe
       app
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      HUnit ==1.6.*
+    , base >=4.7 && <5
     , containers >=0.6.7
     , kwd-cli
     , text >=2.0.2
@@ -60,7 +62,8 @@ test-suite kwd-cli-test
       test
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      HUnit ==1.6.*
+    , base >=4.7 && <5
     , containers >=0.6.7
     , kwd-cli
     , text >=2.0.2
