@@ -7,28 +7,28 @@ import Lib
 testOneOfEachWord :: Test
 testOneOfEachWord = TestCase
     (assertEqual "Test failed"
-        (wordcountMapFromList $ normalizeInputStr "My favorite color is blue!")
-        (M.fromList [("my", 1), ("favorite", 1), ("color", 1), ("is", 1), ("blue", 1)]))
+        (M.fromList [("my", 1), ("favorite", 1), ("color", 1), ("is", 1), ("blue", 1)])
+        (wordcountMapFromList $ normalizeInputStr "My favorite color is blue!"))
 testSingleWord :: Test
 testSingleWord = TestCase
     (assertEqual "Test failed"
-        (wordcountMapFromList $ normalizeInputStr "scared")
-        (M.fromList [("scared", 1)]))
+        (M.fromList [("scared", 1)])
+        (wordcountMapFromList $ normalizeInputStr "scared"))
 testDuplicates :: Test
 testDuplicates = TestCase
     (assertEqual "Test failed"
-        (wordcountMapFromList $ normalizeInputStr "orange orange blue aqua blue green red teal")
-        (M.fromList [("orange", 2), ("blue", 2), ("green", 1), ("red", 1), ("teal", 1), ("aqua", 1)]))
+      (M.fromList [("orange", 2), ("blue", 2), ("green", 1), ("red", 1), ("teal", 1), ("aqua", 1)])
+        (wordcountMapFromList $ normalizeInputStr "orange orange blue aqua blue green red teal"))
 testCapitalizedWordsShouldBeLowercased :: Test
 testCapitalizedWordsShouldBeLowercased = TestCase
     (assertEqual "Test failed"
-        (wordcountMapFromList $ normalizeInputStr "Orange orange bLuE Aqua blue grEEn REd teAL")
-        (M.fromList [("orange", 2), ("blue", 2), ("green", 1), ("red", 1), ("teal", 1), ("aqua", 1)]))
+      (M.fromList [("orange", 2), ("blue", 2), ("green", 1), ("red", 1), ("teal", 1), ("aqua", 1)])
+        (wordcountMapFromList $ normalizeInputStr "Orange orange bLuE Aqua blue grEEn REd teAL"))
 testNonAlphaCharsShouldBeRemoved :: Test
 testNonAlphaCharsShouldBeRemoved = TestCase
     (assertEqual "Test failed"
-          (wordcountMapFromList $ normalizeInputStr "Orange!@ orange @#blue aqu)(a b!^lue green+_ r*ed t!eal")
-          (M.fromList [("orange", 2), ("blue", 2), ("green", 1), ("red", 1), ("teal", 1), ("aqua", 1)]))
+        (M.fromList [("orange", 2), ("blue", 2), ("green", 1), ("red", 1), ("teal", 1), ("aqua", 1)])
+          (wordcountMapFromList $ normalizeInputStr "Orange!@ orange @#blue aqu)(a b!^lue green+_ r*ed t!eal"))
 
 tests :: Test
 tests = TestList [ TestLabel "testOneOfEachWord" testOneOfEachWord
